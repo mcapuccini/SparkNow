@@ -7,7 +7,7 @@
 		"flavour": "{{env `PACKER_FLAVOUR`}}",
 		"floating_ip_pool": "{{env `PACKER_FLOATING_IP_POOL`}}",
 		"availability_zone": "{{user `PACKER_AVAILABILITY_ZONE`}}",
-		"spark_download_url": "{{user `SPARK_DOWNLOAD_URL`}"
+		"spark_download_url": "{{user `SPARK_DOWNLOAD_URL`}}"
 	},
 	"builders": [
 		{
