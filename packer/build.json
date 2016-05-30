@@ -23,11 +23,11 @@
 	"provisioners": [
 		{
 			"type": "shell",
-			"script": "{{pwd}}/provisioners/ubuntu-update.sh"
+			"script": "{{pwd}}/packer/provisioners/ubuntu-update.sh"
 		},
 		{
 			"type": "shell",
-			"script": "{{pwd}}/provisioners/install-spark.sh",
+			"script": "{{pwd}}/packer/provisioners/install-spark.sh",
 			"environment_vars": ["SPARK_DOWNLOAD_URL={{user `spark_download_url`}}"]
 		}
 	]
