@@ -2,18 +2,18 @@
 	"builders": [
 		{
 			"name": "all",
-    	"type": "openstack",
+			"type": "openstack",
 			"image_name": ": {{env `PACKER_IMG_NAME`}}",
 			"source_image_name": "{{env `PACKER_SOURCE_IMG_NAME`}}",
 			"flavor": "{{env `PACKER_FLAVOR`}}",
-	 		"networks": ["{{env `PACKER_NETWORK`}}"],
-	 		"availability_zone": "{{env `PACKER_AVAILABILITY_ZONE`}"
+			"networks": ["{{env `PACKER_NETWORK`}}"],
+			"availability_zone": "{{env `PACKER_AVAILABILITY_ZONE`}"
 		}
 	],
 	"provisioners": [
 		{
 			"type": "shell",
-    	"script": "ubuntu-update.sh"
+			"script": "ubuntu-update.sh"
 		},
 		{
 			"type": "shell",
