@@ -13,7 +13,7 @@
 		{
 			"name": "all",
 			"type": "openstack",
-			"image_name": ": {{user `image_name`}}",
+			"image_name": "{{user `image_name`}}",
 			"source_image_name": "{{user `source_image_name`}}",
 			"flavor": "{{user `flavour`}}",
 			"networks": ["{{user `network`}}"],
