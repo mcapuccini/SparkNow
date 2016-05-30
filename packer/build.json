@@ -18,7 +18,8 @@
 			"flavor": "{{user `flavour`}}",
 			"networks": ["{{user `network`}}"],
 			"availability_zone": "{{user `availability_zone`}}",
-			"floating_ip_pool": "{{user `floating_ip_pool`}}"
+			"floating_ip_pool": "{{user `floating_ip_pool`}}",
+			"ssh_username":  "ubuntu"
 		}
 	],
 	"provisioners": [
