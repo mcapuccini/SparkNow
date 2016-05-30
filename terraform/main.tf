@@ -1,10 +1,10 @@
-variable keypair_name { default = "marco-mac"}
-variable cluster_prefix { default = "SparkNow" }
-variable floating_ip_pool { default = "net_external" }
-variable SparkNow_image_name { default = "SparkNow_spark-1.6.0-hadoop2.6" }
-variable master_flavor_name { default = "s1.tiny" }
-variable worker_flavor_name { default = "s1.small" }
-variable worker_count { default = "3" }
+variable keypair_name { }
+variable cluster_prefix { }
+variable floating_ip_pool { }
+variable SparkNow_image_name { }
+variable master_flavor_name { }
+variable worker_flavor_name { }
+variable worker_count { }
 
 module "master_instance" {
   source = "./spark-master"
