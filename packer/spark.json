@@ -1,0 +1,24 @@
+{
+	"builders": [
+		{
+			"name": "all",
+    	"type": "openstack",
+			"image_name": ": {{env `PACKER_IMG_NAME`}}",
+			"source_image_name": "{{env `PACKER_SOURCE_IMG_NAME`}}",
+			"flavor": "{{env `PACKER_FLAVOR`}}",
+	 		"networks": ["{{env `PACKER_NETWORK`}}"],
+	 		"availability_zone": "{{env `PACKER_AVAILABILITY_ZONE`}"
+		}
+	],
+	"provisioners": [
+		{
+			"type": "shell",
+    	"script": "ubuntu-update.sh"
+		},
+		{
+			"type": "shell",
+			"script": "install-spark.sh",
+			"environment_vars": ["SPARK_DOWNLOAD_URL={{env `SPARK_DOWNLOAD_URL`}}"]
+		}
+	]
+}

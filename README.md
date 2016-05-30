@@ -1,2 +1,2 @@
-# spark-on-openstack
-Deploy Spark on OpenStack, via Terraform and Packer
+# SparkNow
+Deploy Spark on OpenStack, Now!
