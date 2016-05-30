@@ -17,7 +17,8 @@
 			"source_image_name": "{{user `source_image_name`}}",
 			"flavor": "{{user `flavour`}}",
 			"networks": ["{{user `network`}}"],
-			"availability_zone": "{{user `availability_zone`}}"
+			"availability_zone": "{{user `availability_zone`}}",
+			"floating_ip_pool": "{{user `floating_ip_pool`}}"
 		}
 	],
 	"provisioners": [
