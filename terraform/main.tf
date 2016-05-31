@@ -5,6 +5,7 @@ variable SparkNow_image_name { }
 variable master_flavor_name { }
 variable worker_flavor_name { }
 variable worker_count { }
+variable worker_volume_size { }
 
 module "master_instance" {
   source = "./spark-master"
@@ -23,4 +24,5 @@ module "worker_instances" {
   keypair_name = "${var.keypair_name}"
   spark_master_ip = "${module.master_instance.ip_address}"
   count = "${var.worker_count}"
+  volume_size = "${var.worker_volume_size}"
 }
