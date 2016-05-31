@@ -31,6 +31,14 @@
 			"type": "shell",
 			"script": "{{pwd}}/packer/provisioners/install-spark.sh",
 			"environment_vars": ["SPARK_DOWNLOAD_URL={{user `spark_download_url`}}"]
+		},
+		{
+			"type": "shell",
+			"script": "{{pwd}}/packer/provisioners/install-docker.sh",
+		},
+		{
+			"type": "shell",
+			"script": "{{pwd}}/packer/provisioners/install-jupyter.sh",
 		}
 	]
 }
