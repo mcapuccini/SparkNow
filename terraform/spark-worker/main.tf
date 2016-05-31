@@ -4,6 +4,14 @@ variable flavor_name {}
 variable keypair_name {}
 variable spark_master_ip {}
 variable count {}
+variable volume_size {}
+variable volume_device { default = "/dev/vdb" }
+
+resource "openstack_blockstorage_volume_v1" "blockstorage" {
+  name = "${var.name}-volume-${format("%03d", count.index)}"
+  size = "${var.volume_size}"
+  count = "${var.count}"
+}
 
 resource "template_file" "spark_slave_start" {
   template = "${path.module}/bootstrap.sh.tpl"
@@ -20,4 +28,8 @@ resource "openstack_compute_instance_v2" "instance" {
   key_pair = "${var.keypair_name}"
   user_data = "${template_file.spark_slave_start.rendered}"
   count = "${var.count}"
+  volume = {
+    volume_id = "${element(openstack_blockstorage_volume_v1.blockstorage.*.id, count.index)}"
+    device = "${var.volume_device}"
+  }
 }
