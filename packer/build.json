@@ -34,11 +34,11 @@
 		},
 		{
 			"type": "shell",
-			"script": "{{pwd}}/packer/provisioners/install-docker.sh",
+			"script": "{{pwd}}/packer/provisioners/install-docker.sh"
 		},
 		{
 			"type": "shell",
-			"script": "{{pwd}}/packer/provisioners/install-jupyter.sh",
+			"script": "{{pwd}}/packer/provisioners/install-jupyter.sh"
 		}
 	]
 }
