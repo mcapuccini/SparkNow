@@ -5,6 +5,7 @@ variable SparkNow_image_name { }
 variable master_flavor_name { }
 variable worker_flavor_name { }
 variable worker_count { }
+variable master_volume_size { }
 variable worker_volume_size { }
 
 module "master_instance" {
@@ -14,6 +15,7 @@ module "master_instance" {
   image_name = "${var.SparkNow_image_name}"
   flavor_name = "${var.master_flavor_name}"
   keypair_name = "${var.keypair_name}"
+  volume_size = "${var.master_volume_size}"
 }
 
 module "worker_instances" {
