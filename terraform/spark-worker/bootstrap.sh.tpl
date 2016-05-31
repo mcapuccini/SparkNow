@@ -10,6 +10,7 @@ echo "Mounting attached volume..."
 mkfs.ext4 /dev/vdb
 mkdir /mnt/volume
 mount /dev/vdb /mnt/volume
+chown -R ubuntu /mnt/volume
 
 echo "Starting Spark slave..."
 cd /opt/spark/default
