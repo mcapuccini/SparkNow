@@ -14,7 +14,3 @@ sudo apt-get install -y apparmor
 
 echo "Installing docker..."
 sudo apt-get install -y docker-engine
-
-#Start docker service
-echo "Starting docker..."
-sudo service docker start
