@@ -7,10 +7,8 @@ echo "Setting hostname in /etc/hosts..."
 sudo sh -c "echo \"$(hostname -I) $(hostname)\" >> /etc/hosts"
 
 echo "Wait for volume to be attached..."
-ls /dev/vdb
-while [ $? -ne 0 ]; do
+while [ ! -e /dev/vdb ]; do
   sleep 10
-  ls /dev/vdb
 done
 
 echo "Mounting attached volume..."
