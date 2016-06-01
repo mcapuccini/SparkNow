@@ -8,6 +8,8 @@ Using SparkNow you can rapidly deploy, scale and tear down your Spark clusters o
   - [Build SparkNow](#build-sparknow)
   - [Deploy a Spark cluster](#deploy-a-spark-cluster)
 - [Access Spark UI and Jupyter](#access-spark-ui-and-jupyter)
+- [Scale the cluster](#scale-the-cluster)
+- [Destroy the cluster](#destroy-the-cluster)
 
 ## Getting started
 
@@ -119,3 +121,22 @@ following addresses.
 
 - Spark UI: [http://localhost:8080](http://localhost:8080)
 - Jupyter: [http://localhost:8888](http://localhost:8888)
+
+## Scale the cluster
+To scale the number of workers in your cluster, open the `conf.tfvars` file, and change the *worker_count* property.
+Then, apply the changes with Terraform.
+
+```bash
+# assuming you are located into SparkNow/terraform
+terraform apply -var-file=conf.tfvars
+```
+
+Terraform will apply only the delta, without tearing down and recreate the whole cluster.
+
+## Destroy the cluster
+To destroy the cluster and release all of the resources, you can run the following command.
+
+```bash
+# assuming you are located into SparkNow/terraform
+terraform destroy -var-file=conf.tfvars
+```
