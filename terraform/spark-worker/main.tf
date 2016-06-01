@@ -14,7 +14,7 @@ resource "openstack_blockstorage_volume_v1" "blockstorage" {
 }
 
 resource "template_file" "spark_slave_start" {
-  template = "${path.module}/bootstrap.sh.tpl"
+  template = "file(${path.module}/bootstrap.sh.tpl)"
   vars {
     spark_master_ip = "${var.spark_master_ip}"
   }
