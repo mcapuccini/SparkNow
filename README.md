@@ -3,11 +3,11 @@ Using SparkNow you can rapidly deploy, scale and tear down your Spark clusters o
 
 ## Table of contents
 - [Getting started](#getting-started)
-  - [Get SparkNow](get-sparknow)
+  - [Get SparkNow](#get-sparknow)
   - [Install Packer and Terraform](#install-packer-and-terraform)
-  - [Build SparkNow](build-sparknow)
-  - [Deploy a Spark cluster](deploy-a-spark-cluster)
-- [Access Spark UI and Jupyter](access-spark-ui-and-jupyter)
+  - [Build SparkNow](#build-sparknow)
+  - [Deploy a Spark cluster](#deploy-a-spark-cluster)
+- [Access Spark UI and Jupyter](#access-spark-ui-and-jupyter)
 
 ## Getting started
 
@@ -117,5 +117,5 @@ ssh -N -f -L localhost:8888:localhost:8888 ubuntu@<master-floating-ip>
 If everything went well, you should be able to access the Spark UI, and the Jupyter notebook from your browser at the
 following addresses.
 
-- Spark UI: http://localhost:8080
-- Jupyter: http://localhost:8888
+- Spark UI: [http://localhost:8080](http://localhost:8080)
+- Jupyter: [http://localhost:8888](http://localhost:8888)
