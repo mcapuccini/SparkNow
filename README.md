@@ -30,10 +30,10 @@ To build SparkNow on your OpenStack tenancy, first export the following environm
 machine.
 
 ```bash
-export SPARK_DOWNLOAD_URL="http://d3kbcqa49mib13.cloudfront.net/spark-1.6.0-bin-hadoop2.6.tgz"
+export SPARK_DOWNLOAD_URL="http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz"
 # you can change the download URL if you need another Spark version
 
-export PACKER_IMAGE_NAME="SparkNow_spark-1.6.0-hadoop2.6"
+export PACKER_IMAGE_NAME="SparkNow_spark-1.6.1-hadoop2.6"
 export PACKER_SOURCE_IMAGE_NAME="Ubuntu 14.04" #this may be different in your OpenStack tenancy
 export PACKER_NETWORK="" # your OpenStack tenancy private network id
 export PACKER_FLAVOUR="" # the instance flavor that you want to use to build SparkNow
@@ -66,7 +66,7 @@ First create a `conf.tfvars` file, specifying some properties for the Spark clus
 keypair_name = "your-keypair"
 cluster_prefix = "SparkNow"
 floating_ip_pool = ""
-SparkNow_image_name = "SparkNow_spark-1.6.0-hadoop2.6"
+SparkNow_image_name = "SparkNow_spark-1.6.1-hadoop2.6"
 master_flavor_name = ""
 worker_flavor_name = ""
 worker_count = "3"
