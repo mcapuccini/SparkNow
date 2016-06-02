@@ -30,7 +30,7 @@
 		{
 			"type": "shell",
 			"script": "{{pwd}}/packer/provisioners/install-spark.sh",
-			"environment_vars": ["SPARK_DOWNLOAD_URL={{user `spark_version`}}"]
+			"environment_vars": ["SPARK_VERSION={{user `spark_version`}}"]
 		},
 		{
 			"type": "shell",
@@ -39,7 +39,7 @@
 		{
 			"type": "shell",
 			"script": "{{pwd}}/packer/provisioners/install-jupyter.sh",
-			"environment_vars": ["SPARK_DOWNLOAD_URL={{user `spark_version`}}"]
+			"environment_vars": ["SPARK_VERSION={{user `spark_version`}}"]
 		}
 	]
 }
