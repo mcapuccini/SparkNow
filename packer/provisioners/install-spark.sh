@@ -7,7 +7,7 @@ set -e
 sudo apt-get install -y openjdk-7-jre-headless
 
 #Set download url
-http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VERSION}-bin-hadoop2.6.tgz
+SPARK_DOWNLOAD_URL=http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VERSION}-bin-hadoop2.6.tgz
 
 echo "Fetching $SPARK_DOWNLOAD_URL..."
 SPARK_TGZ=${SPARK_DOWNLOAD_URL##*/}
