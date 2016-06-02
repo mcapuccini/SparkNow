@@ -5,8 +5,10 @@ set -e
 
 echo "Updating package info..."
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D #Docker
-sudo sh -c 'echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" > /etc/apt/sources.list.d/docker.list' #Docker
-sudo rm -rf /var/lib/apt/lists/*
+
+#Use precise repository, due to checksum mismatch
+sudo sh -c 'echo "deb https://apt.dockerproject.org/repo ubuntu-precise main" > /etc/apt/sources.list.d/docker.list' #Docker
+
 sudo apt-get update -y
 
 echo "Upgrading packages..."
