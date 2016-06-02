@@ -18,5 +18,5 @@ echo "Building all-spark-notebook..."
 sudo docker build docker-stacks/all-spark-notebook \
   -t jupyter/all-spark-notebook
 
-echo "Cleaning after Jupyter build/install"
+echo "Cleaning after Jupyter build/install..."
 rm -Rf docker-stacks
