@@ -38,7 +38,8 @@
 		},
 		{
 			"type": "shell",
-			"script": "{{pwd}}/packer/provisioners/install-jupyter.sh"
+			"script": "{{pwd}}/packer/provisioners/install-jupyter.sh",
+			"environment_vars": ["SPARK_DOWNLOAD_URL={{user `spark_version`}}"]
 		}
 	]
 }
