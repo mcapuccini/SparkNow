@@ -7,7 +7,7 @@
 		"flavour": "{{env `PACKER_FLAVOUR`}}",
 		"floating_ip_pool": "{{env `PACKER_FLOATING_IP_POOL`}}",
 		"availability_zone": "{{env `PACKER_AVAILABILITY_ZONE`}}",
-		"spark_download_url": "{{env `SPARK_DOWNLOAD_URL`}}"
+		"spark_version": "{{env `SPARK_VERSION`}}"
 	},
 	"builders": [
 		{
@@ -30,7 +30,7 @@
 		{
 			"type": "shell",
 			"script": "{{pwd}}/packer/provisioners/install-spark.sh",
-			"environment_vars": ["SPARK_DOWNLOAD_URL={{user `spark_download_url`}}"]
+			"environment_vars": ["SPARK_DOWNLOAD_URL={{user `spark_version`}}"]
 		},
 		{
 			"type": "shell",
