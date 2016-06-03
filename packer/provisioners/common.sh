@@ -17,3 +17,6 @@ sudo apt-get upgrade -y
 echo "Installing java..."
 sudo apt-get install -y openjdk-7-jre-headless
 echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> ~/.bashrc
+
+echo "Installing unzip..."
+sudo apt-get install -y unzip
