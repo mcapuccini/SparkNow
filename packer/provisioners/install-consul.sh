@@ -7,7 +7,7 @@ echo "Fetching Consul..."
 CONSUL_DOWNLOAD_URL=https://releases.hashicorp.com/consul/0.6.4/consul_0.6.4_linux_amd64.zip
 CONSUL_ZIP=${CONSUL_DOWNLOAD_URL##*/}
 CONSUL_PACKAGE_NAME=${CONSUL_ZIP%.*}
-wget -q consul_DOWNLOAD_URL -O /tmp/$CONSUL_ZIP
+wget -q CONSUL_DOWNLOAD_URL -O /tmp/$CONSUL_ZIP
 
 echo "Installing $CONSUL_PACKAGE_NAME..."
 
