@@ -18,6 +18,15 @@ mkdir /mnt/volume
 mount /dev/vdb /mnt/volume
 chown -R ubuntu /mnt/volume
 
+echo "Starting consul server agent..."
+sudo consul agent -server \
+  -bootstrap-expect 1 \
+  -data-dir /tmp/consul \
+  -node=$(hostname) \
+  -config-dir /etc/consul.d \
+  -bind $(hostname -I | awk '{print $1;}') \
+  > /var/log/consul/consul.log &
+
 echo "Starting Spark master..."
 cd /opt/spark/default
 sbin/start-master.sh
