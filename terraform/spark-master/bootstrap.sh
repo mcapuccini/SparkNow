@@ -5,7 +5,7 @@ set -e
 
 echo "Setting hostname in /etc/hosts..."
 
-sudo sh -c "echo \"$(hostname -I) $(hostname)\" >> /etc/hosts"
+sudo sh -c "echo \"$(hostname -I | awk '{print $1;}') $(hostname)\" >> /etc/hosts"
 
 echo "Wait for volume to be attached..."
 while [ ! -e /dev/vdb ]; do
