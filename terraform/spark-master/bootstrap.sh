@@ -18,6 +18,11 @@ mkdir /mnt/volume
 mount /dev/vdb /mnt/volume
 chown -R ubuntu /mnt/volume
 
+echo "Creating HDFS directories..."
+sudo mkdir -p /mnt/volume/hdfs/namenode
+sudo mkdir -p /mnt/volume/hdfs/datanode
+sudo chown hduser:hadoop -R /mnt/volume/hdfs
+
 echo "Starting consul server agent..."
 sudo consul agent -server \
   -bootstrap-expect 1 \

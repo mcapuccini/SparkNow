@@ -25,11 +25,6 @@ sudo tar xzf /tmp/$HADOOP_TGZ -C /opt/hadoop/
 sudo ln -s /opt/hadoop/$HADOOP_PACKAGE_NAME /opt/hadoop/default
 sudo chown hduser:hadoop -R /opt/hadoop/
 
-# Create Hadoop temp directories for Namenode and Datanode
-sudo mkdir -p /mnt/volume/hdfs/namenode
-sudo mkdir -p /mnt/volume/hdfs/datanode
-sudo chown hduser:hadoop -R /mnt/volume/hdfs
-
 # Set environment
 echo "export HADOOP_HOME=/opt/hadoop/" >> ~/.bashrc
 echo "export PATH=$PATH:$HADOOP_HOME/bin" >> ~/.bashrc
