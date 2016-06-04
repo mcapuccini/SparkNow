@@ -16,7 +16,7 @@ echo "Fetching Hadoop..."
 HADOOP_DOWNLOAD_URL=http://apache.mirrors.spacedump.net/hadoop/common/hadoop-2.6.0/hadoop-2.6.0.tar.gz
 HADOOP_TGZ=${HADOOP_DOWNLOAD_URL##*/}
 HADOOP_PACKAGE_NAME=${HADOOP_TGZ%.tar.gz}
-wget -q HADOOP_DOWNLOAD_URL -O /tmp/$HADOOP_TGZ
+wget -q $HADOOP_DOWNLOAD_URL -O /tmp/$HADOOP_TGZ
 
 echo "Installing $HADOOP_PACKAGE_NAME..."
 
