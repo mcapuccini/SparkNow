@@ -40,6 +40,6 @@ echo "export HADOOP_HDFS_HOME=$HADOOP_HOME" >> ~/.bashrc
 echo "export YARN_HOME=$HADOOP_HOME" >> ~/.bashrc
 echo "export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native" >> ~/.bashrc
 echo "export HADOOP_OPTS=\"-Djava.library.path=$HADOOP_HOME/lib\"" >> ~/.bashrc
-sudo sh -c 'echo "JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /opt/hadoop/etc/hadoop/hadoop-env.sh'
+sudo sh -c 'echo "JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /opt/hadoop/default/etc/hadoop/hadoop-env.sh'
 
 echo "$HADOOP_PACKAGE_NAME installation complete."
