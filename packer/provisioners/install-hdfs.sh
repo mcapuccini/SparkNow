@@ -26,7 +26,8 @@ sudo ln -s /opt/hadoop/$HADOOP_PACKAGE_NAME /opt/hadoop/default
 sudo chown hduser:hadoop -R /opt/hadoop/
 
 # Set environment
-echo "export HADOOP_HOME=/opt/hadoop/" >> ~/.bashrc
+HADOOP_HOME=/opt/hadoop/default
+echo "export HADOOP_HOME=$HADOOP_HOME" >> ~/.bashrc
 echo "export PATH=$PATH:$HADOOP_HOME/bin" >> ~/.bashrc
 echo "export PATH=$PATH:$HADOOP_HOME/sbin" >> ~/.bashrc
 echo "export HADOOP_MAPRED_HOME=$HADOOP_HOME" >> ~/.bashrc
