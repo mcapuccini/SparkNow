@@ -5,7 +5,7 @@ set -e
 
 echo "Creating Hadoop users..."
 sudo addgroup hadoop
-sudo adduser --ingroup hadoop hduser
+sudo adduser --disabled-password --gecos "" --ingroup hadoop hduser
 
 echo "Disabling IPv6 (not supported by Hadoop)..."
 sudo sh -c 'echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf'
