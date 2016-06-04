@@ -15,7 +15,7 @@ sudo sh -c 'echo "net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf'
 echo "Fetching Hadoop..."
 HADOOP_DOWNLOAD_URL=http://apache.mirrors.spacedump.net/hadoop/common/hadoop-2.6.0/hadoop-2.6.0.tar.gz
 HADOOP_TGZ=${HADOOP_DOWNLOAD_URL##*/}
-HADOOP_PACKAGE_NAME=${HADOOP_TGZ%.*}
+HADOOP_PACKAGE_NAME=${HADOOP_TGZ%.tar.gz}
 wget -q HADOOP_DOWNLOAD_URL -O /tmp/$HADOOP_TGZ
 
 echo "Installing $HADOOP_PACKAGE_NAME..."
