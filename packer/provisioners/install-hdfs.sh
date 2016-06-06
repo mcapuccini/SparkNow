@@ -38,7 +38,7 @@ echo 'export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"' >> ~/.bashrc
 sudo sh -c 'echo "JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /opt/hadoop/default/etc/hadoop/hadoop-env.sh'
 
 # Move configuration to the correct location
-sudo mv /tmp/core-site.xml /opt/hadoop/defatult/etc/hadoop
-sudo mv /tmp/hdfs-site.xml /opt/hadoop/defatult/etc/hadoop
+sudo mv /tmp/core-site.xml /opt/hadoop/default/etc/hadoop
+sudo mv /tmp/hdfs-site.xml /opt/hadoop/default/etc/hadoop
 
 echo "$HADOOP_PACKAGE_NAME installation complete."
