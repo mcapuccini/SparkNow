@@ -45,6 +45,16 @@
 			"script": "{{pwd}}/packer/provisioners/install-hdfs.sh"
 		},
 		{
+  		"type": "file",
+  		"source": "{{pwd}}/packer/provisioners/core-site.xml",
+  		"destination": "/opt/hadoop/default/etc/hadoop/core-site.xml"
+		},
+		{
+  		"type": "file",
+  		"source": "{{pwd}}/packer/provisioners/hdfs-site.xml",
+  		"destination": "/opt/hadoop/default/etc/hadoop/hdfs-site.xml"
+		},
+		{
 			"type": "shell",
 			"script": "{{pwd}}/packer/provisioners/install-consul.sh"
 		}
