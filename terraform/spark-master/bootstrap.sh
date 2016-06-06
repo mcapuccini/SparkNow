@@ -3,9 +3,19 @@
 #Exit immediately if a command exits with a non-zero status
 set -e
 
-echo "Setting hostname in /etc/hosts..."
+echo "Starting consul server agent..."
+sudo consul agent -server \
+  -bootstrap-expect 1 \
+  -data-dir /tmp/consul \
+  -node=$(hostname) \
+  -config-dir /etc/consul.d \
+  -bind $(hostname -I | awk '{print $1;}') \
+  > /var/log/consul/consul.log &
 
-sudo sh -c "echo \"$(hostname -I | awk '{print $1;}') $(hostname)\" >> /etc/hosts"
+  echo "Setting hostname..."
+  echo "$(hostname).node.consul" > /etc/hostname #setting consul hostname
+  sudo service hostname restart
+  sudo sh -c "echo \"$(hostname -I | awk '{print $1;}') $(hostname)\" >> /etc/hosts"
 
 echo "Wait for volume to be attached..."
 while [ ! -e /dev/vdb ]; do
@@ -22,15 +32,6 @@ echo "Creating HDFS directories..."
 sudo mkdir -p /mnt/volume/hdfs/namenode
 sudo mkdir -p /mnt/volume/hdfs/datanode
 sudo chown hduser:hadoop -R /mnt/volume/hdfs
-
-echo "Starting consul server agent..."
-sudo consul agent -server \
-  -bootstrap-expect 1 \
-  -data-dir /tmp/consul \
-  -node=$(hostname) \
-  -config-dir /etc/consul.d \
-  -bind $(hostname -I | awk '{print $1;}') \
-  > /var/log/consul/consul.log &
 
 echo "Starting Spark master..."
 cd /opt/spark/default
