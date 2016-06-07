@@ -10,7 +10,7 @@ variable worker_volume_size { }
 
 module "master_instance" {
   source = "./spark-master"
-  name = "${var.cluster_prefix}-master"
+  name_prefix = "${var.cluster_prefix}"
   floating_ip_pool = "${var.floating_ip_pool}"
   image_name = "${var.SparkNow_image_name}"
   flavor_name = "${var.master_flavor_name}"
@@ -20,7 +20,7 @@ module "master_instance" {
 
 module "worker_instances" {
   source = "./spark-worker"
-  name = "${var.cluster_prefix}-slave"
+  name_prefix = "${var.cluster_prefix}"
   image_name = "${var.SparkNow_image_name}"
   flavor_name = "${var.worker_flavor_name}"
   keypair_name = "${var.keypair_name}"

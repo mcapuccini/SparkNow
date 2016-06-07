@@ -1,4 +1,4 @@
-variable name {}
+variable name_prefix {}
 variable image_name {}
 variable flavor_name {}
 variable keypair_name {}
@@ -8,7 +8,7 @@ variable volume_size {}
 variable volume_device { default = "/dev/vdb" }
 
 resource "openstack_blockstorage_volume_v1" "blockstorage" {
-  name = "${var.name}-volume-${format("%03d", count.index)}"
+  name = "${var.name_prefix}-worker-volume-${format("%03d", count.index)}"
   size = "${var.volume_size}"
   count = "${var.count}"
 }
@@ -17,11 +17,12 @@ resource "template_file" "spark_slave_start" {
   template = "${file("${path.module}/bootstrap.sh")}"
   vars {
     spark_master_ip = "${var.spark_master_ip}"
+    spark_master_hostname = "${lower(var.name_prefix)}-master.node.dc1.consul"
   }
 }
 
 resource "openstack_compute_instance_v2" "instance" {
-  name="${var.name}-${format("%03d", count.index)}"
+  name="${var.name_prefix}-worker-${format("%03d", count.index)}"
   image_name = "${var.image_name}"
   flavor_name = "${var.flavor_name}"
   user_data = "${file("${path.module}/bootstrap.sh")}"

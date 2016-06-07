@@ -1,4 +1,4 @@
-variable name {}
+variable name_prefix {}
 variable floating_ip_pool {}
 variable image_name {}
 variable flavor_name {}
@@ -7,7 +7,7 @@ variable volume_size {}
 variable volume_device { default = "/dev/vdb" }
 
 resource "openstack_blockstorage_volume_v1" "blockstorage" {
-  name = "${var.name}-volume"
+  name = "${var.name_prefix}-master-volume"
   size = "${var.volume_size}"
 }
 
@@ -16,7 +16,7 @@ resource "openstack_compute_floatingip_v2" "master_floating_ip" {
 }
 
 resource "openstack_compute_instance_v2" "instance" {
-  name="${var.name}"
+  name="${var.name_prefix}-master"
   image_name = "${var.image_name}"
   flavor_name = "${var.flavor_name}"
   floating_ip = "${openstack_compute_floatingip_v2.master_floating_ip.address}"
