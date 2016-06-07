@@ -57,6 +57,10 @@
 		{
 			"type": "shell",
 			"script": "{{pwd}}/packer/provisioners/install-consul.sh"
+		},
+		{
+			"type": "shell",
+			"script": "{{pwd}}/packer/provisioners/install-ansible.sh"
 		}
 	]
 }
