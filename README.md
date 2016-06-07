@@ -131,7 +131,7 @@ If everything went well, you should be able to access the UIs from your browser 
 - HDFS: [http://localhost:50070](http://localhost:50070)
 
 ## Access HDFS 
-In a SparkNow cluster the HDFS namenode is reachable at `hdfs://cluster_prefix-master.node.consul:9000`.
+In a SparkNow cluster the HDFS namenode is reachable at `hdfs://<cluster_prefix>-master.node.consul:9000`.
 
 To copy data in HDFS, you can ssh into the SparkNow master node, or ssh forward port 9000, and use the [Hadoop
 CLI](https://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/CommandsManual.html).
