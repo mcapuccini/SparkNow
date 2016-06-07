@@ -12,7 +12,7 @@ Using SparkNow you can rapidly deploy, scale and tear down your Spark clusters o
   - [Build SparkNow](#build-sparknow)
   - [Deploy a Spark cluster](#deploy-a-spark-cluster)
 - [Access Spark UI and Jupyter](#access-spark-ui-and-jupyter)
-- [Access HDFS from your Spark application](#access-hdfs-from-your-spark-application)
+- [Access HDFS](#access-hdfs)
 - [Scale the cluster](#scale-the-cluster)
 - [Destroy the cluster](#destroy-the-cluster)
 
@@ -130,7 +130,7 @@ If everything went well, you should be able to access the UIs from your browser 
 - Jupyter: [http://localhost:8888](http://localhost:8888)
 - HDFS: [http://localhost:50070](http://localhost:50070)
 
-## Access HDFS from your Spark application
+## Access HDFS 
 In a SparkNow cluster the HDFS namenode is reachable at `hdfs://cluster_prefix-master.node.consul:9000`.
 
 To copy data in HDFS, you can ssh into the SparkNow master node, or ssh forward port 9000, and use the [Hadoop
