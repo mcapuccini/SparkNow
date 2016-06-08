@@ -2,7 +2,7 @@
 - name: set namenode hostname
   script: set-namenode-host.sh
   environment:
-    HDFS_NAMENODE_HOST: {{ hdfs_namenode_host }}
+    HDFS_NAMENODE_HOST: "{{ hdfs_namenode_host }}"
   tags:
     - master
     - worker

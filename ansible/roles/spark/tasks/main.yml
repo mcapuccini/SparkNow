@@ -7,7 +7,7 @@
 - name: start Spark slave
   script: start-slave.sh
   environment:
-    SPARK_MASTER_HOST: {{ spark_master_host }}
+    SPARK_MASTER_HOST: "{{ spark_master_host }}"
   tags:
     - slave
 
