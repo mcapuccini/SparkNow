@@ -61,6 +61,11 @@
 		{
 			"type": "shell",
 			"script": "{{pwd}}/packer/provisioners/install-ansible.sh"
+		},
+		{
+  		"type": "file",
+  		"source": "{{pwd}}/packer/ansible",
+  		"destination": "/tmp/playbooks"
 		}
 	]
 }
