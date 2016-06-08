@@ -1,9 +1,0 @@
----
-- hosts: localhost
-  tags:
-    - worker
-  roles:
-    - volume
-    - consul
-    - hdfs
-    - spark
