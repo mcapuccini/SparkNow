@@ -1,3 +1,4 @@
+variable dc_name {}
 variable name_prefix {}
 variable floating_ip_pool {}
 variable image_name {}
@@ -15,12 +16,19 @@ resource "openstack_compute_floatingip_v2" "master_floating_ip" {
   pool = "${var.floating_ip_pool}"
 }
 
+resource "template_file" "bootstrap" {
+  template = "${file("${path.module}/bootstrap.sh")}"
+  vars {
+    dc_name = "${var.dc_name}"
+  }
+}
+
 resource "openstack_compute_instance_v2" "instance" {
   name="${var.name_prefix}-master"
   image_name = "${var.image_name}"
   flavor_name = "${var.flavor_name}"
   floating_ip = "${openstack_compute_floatingip_v2.master_floating_ip.address}"
-  user_data = "${file("${path.module}/bootstrap.sh")}"
+  user_data = "${template_file.bootstrap.rendered}"
   key_pair = "${var.keypair_name}"
   volume = {
     volume_id = "${openstack_blockstorage_volume_v1.blockstorage.0.id}"
