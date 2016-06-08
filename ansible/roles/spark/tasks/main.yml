@@ -3,6 +3,7 @@
   script: start-master.sh
   tags:
     - master
+    - primary-dc
 
 - name: start Spark slave
   script: start-slave.sh
@@ -15,3 +16,4 @@
   script: start-jupyter.sh
   tags:
     - master
+    - primary-dc
