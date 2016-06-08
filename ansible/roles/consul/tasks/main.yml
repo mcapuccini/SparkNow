@@ -2,7 +2,7 @@
 - name: start consul server agent
   script: start-server-agent.sh
   environment:
-    CONSUL_DC_NAME: "{{ consul_dc_name }}""
+    CONSUL_DC_NAME: "{{ consul_dc_name }}"
   tags:
     - master
 
