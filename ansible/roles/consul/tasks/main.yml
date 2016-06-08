@@ -20,6 +20,13 @@
   tags:
     - worker
 
+- name: join consul cluster (wan)
+  script: join-cluster-wan.sh
+  environment:
+    CONSUL_PRIMARY_SERVER_IP: "{{ consul_primary_server_ip }}"
+  tags:
+    - join-wan
+
 - name: set hostname
   script: set-hostname.sh
   environment:
