@@ -65,7 +65,7 @@
 		{
   		"type": "file",
   		"source": "{{pwd}}/ansible",
-  		"destination": "/tmp/playbooks"
+  		"destination": "/var/local/playbooks"
 		}
 	]
 }
