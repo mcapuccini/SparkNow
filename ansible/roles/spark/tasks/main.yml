@@ -9,7 +9,7 @@
   environment:
     SPARK_MASTER_HOST: "{{ spark_master_host }}"
   tags:
-    - slave
+    - worker
 
 - name: start Jupyter notebook
   script: start-jupyter.sh
