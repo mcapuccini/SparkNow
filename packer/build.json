@@ -64,7 +64,7 @@
 		},
 		{
   		"type": "file",
-  		"source": "{{pwd}}/packer/ansible",
+  		"source": "{{pwd}}/ansible",
   		"destination": "/tmp/playbooks"
 		}
 	]
