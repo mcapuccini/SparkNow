@@ -1,0 +1,29 @@
+---
+- name: set namenode hostname
+  script: set-namenode-host.sh
+  environment:
+    HDFS_NAMENODE_HOST: {{ hdfs_namenode_host }}
+  tags:
+    - master
+    - worker
+
+- name: create volume directories
+  script: volume-directories.sh
+  tags:
+    - master
+    - worker
+
+- name: start namenode
+  script: start-namenode.sh
+  tags:
+    - master
+
+- name: start datanode
+  script: start-datanode.sh
+  tags:
+    - worker
+
+- name: create user directories
+  script: user-directories.sh
+  tags:
+    - master

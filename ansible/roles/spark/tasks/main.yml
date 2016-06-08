@@ -1,0 +1,17 @@
+---
+- name: start Spark master
+  script: start-master.sh
+  tags:
+    - master
+
+- name: start Spark slave
+  script: start-slave.sh
+  environment:
+    SPARK_MASTER_HOST: {{ spark_master_host }}
+  tags:
+    - slave
+
+- name: start Jupyter notebook
+  script: start-jupyter.sh
+  tags:
+    - master

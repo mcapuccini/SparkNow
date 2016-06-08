@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tags:
+    - master
+  roles:
+    - volume
+    - consul
+    - hdfs
+    - spark

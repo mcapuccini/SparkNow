@@ -1,0 +1,29 @@
+---
+- name: start consul server agent
+  script: start-server-agent.sh
+  environment:
+    CONSUL_DC_NAME: {{ consul_dc_name }}
+  tags:
+    - master
+
+- name: start consul agent
+  script: start-agent.sh
+  environment:
+    CONSUL_DC_NAME: {{ consul_dc_name }}
+  tags:
+    - worker
+
+- name: join consul cluster
+  script: join-cluster.sh
+  environment:
+    CONSUL_SERVER_IP: {{ consul_server_ip }}
+  tags:
+    - worker
+
+- name: set hostname
+  script: set-hostname.sh
+  environment:
+    CONSUL_DC_NAME: {{ consul_dc_name }}
+  tags:
+    - master
+    - worker
