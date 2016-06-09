@@ -9,5 +9,5 @@ sudo docker run -d \
   -v /mnt/volume/juputer-workspace:/home/jovyan/work \
   -v /mnt/volume/:/mnt/volume \
   -e TINI_SUBREAPER=true \
-  -e SPARK_OPTS=--master=spark://$(hostname):7077 \
+  -e SPARK_OPTS="--master=spark://$(hostname):7077 --conf spark.rpc=$SPARK_RPC" \
   jupyter/all-spark-notebook
