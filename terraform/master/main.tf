@@ -6,6 +6,9 @@ variable flavor_name {}
 variable keypair_name {}
 variable volume_size {}
 variable volume_device { default = "/dev/vdb" }
+variable ansible_opt { default = "" }
+variable ansible_tags { default = "master" }
+variable spark_rpc { default = "akka" }
 
 resource "openstack_blockstorage_volume_v1" "blockstorage" {
   name = "${var.name_prefix}-master-volume"
@@ -20,6 +23,9 @@ resource "template_file" "bootstrap" {
   template = "${file("${path.module}/bootstrap.sh")}"
   vars {
     dc_name = "${var.dc_name}"
+    ansible_opt = "${var.ansible_opt}"
+    ansible_tags = "${var.ansible_tags}"
+    spark_rpc = "${var.spark_rpc}"
   }
 }
 

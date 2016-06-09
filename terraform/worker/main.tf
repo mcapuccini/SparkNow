@@ -1,4 +1,4 @@
-variable dc_name { default = "dc1" }
+variable dc_name { }
 variable name_prefix {}
 variable image_name {}
 variable flavor_name {}
@@ -7,6 +7,10 @@ variable master_ip {}
 variable count {}
 variable volume_size {}
 variable volume_device { default = "/dev/vdb" }
+variable ansible_opt { default = "" }
+variable ansible_tags { default = "worker" }
+variable spark_rpc { default = "akka" }
+variable spark_master_host {}
 
 resource "openstack_blockstorage_volume_v1" "blockstorage" {
   name = "${var.name_prefix}-worker-volume-${format("%03d", count.index)}"
@@ -19,7 +23,10 @@ resource "template_file" "bootstrap" {
   vars {
     dc_name = "${var.dc_name}"
     master_ip = "${var.master_ip}"
-    master_hostname = "${lower(var.name_prefix)}-master.node.${var.dc_name}.consul"
+    ansible_opt = "${var.ansible_opt}"
+    ansible_tags = "${var.ansible_tags}"
+    spark_rpc = "${var.spark_rpc}"
+    spark_master_host = "${var.spark_master_host}"
   }
 }
 
