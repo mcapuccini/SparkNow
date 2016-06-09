@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  roles:
+    - volume
+    - consul
+    - hdfs
+    - spark

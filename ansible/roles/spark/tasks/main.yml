@@ -1,0 +1,29 @@
+---
+- name: Spark common
+  script: common.sh
+  environment:
+    SPARK_RPC: "{{ spark_rpc }}"
+  tags:
+    - master
+    - worker
+
+- name: start Spark master
+  script: start-master.sh
+  tags:
+    - master
+    - start-spark-master
+
+- name: start Spark slave
+  script: start-slave.sh
+  environment:
+    SPARK_MASTER_HOST: "{{ spark_master_host }}"
+  tags:
+    - worker
+
+- name: start Jupyter notebook
+  script: start-jupyter.sh
+  environment:
+    SPARK_RPC: "{{ spark_rpc }}"
+  tags:
+    - master
+    - start-spark-master

@@ -1,0 +1,6 @@
+---
+- name: mount volume
+  script: mount-volume.sh
+  tags:
+    - master
+    - worker

@@ -57,6 +57,15 @@
 		{
 			"type": "shell",
 			"script": "{{pwd}}/packer/provisioners/install-consul.sh"
+		},
+		{
+  		"type": "file",
+  		"source": "{{pwd}}/ansible",
+  		"destination": "/tmp/playbooks"
+		},
+		{
+			"type": "shell",
+			"script": "{{pwd}}/packer/provisioners/install-ansible.sh"
 		}
 	]
 }
