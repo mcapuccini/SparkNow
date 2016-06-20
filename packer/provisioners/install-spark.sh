@@ -14,4 +14,7 @@ sudo tar xzf /tmp/$SPARK_TGZ -C /opt/spark/
 sudo ln -s /opt/spark/$SPARK_PACKAGE_NAME /opt/spark/default
 sudo chown -R ubuntu:ubuntu /opt/spark
 
+echo "Setting HADOOP_CONF_DIR..."
+echo "export HADOOP_CONF_DIR=/opt/hadoop/default/etc/hadoop" > /opt/spark/default/conf/spark-env.sh
+
 echo "$SPARK_PACKAGE_NAME installation complete."
