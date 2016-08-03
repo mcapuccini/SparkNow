@@ -8,6 +8,7 @@ variable worker_flavor_name { }
 variable worker_count { }
 variable master_volume_size { }
 variable worker_volume_size { }
+variable hdfs_block_size { default = "128M" }
 
 module "master_instance" {
   source = "./master"
@@ -18,6 +19,7 @@ module "master_instance" {
   keypair_name = "${var.keypair_name}"
   volume_size = "${var.master_volume_size}"
   dc_name = "${var.dc_name}"
+  hdfs_block_size = "${var.hdfs_block_size}"
 }
 
 module "worker_instances" {
@@ -31,4 +33,5 @@ module "worker_instances" {
   volume_size = "${var.worker_volume_size}"
   dc_name = "${var.dc_name}"
   spark_master_host = "${lower(var.cluster_prefix)}-master.node.${var.dc_name}.consul"
+  hdfs_block_size = "${var.hdfs_block_size}"
 }

@@ -1,8 +1,9 @@
 ---
-- name: set namenode hostname
-  script: set-namenode-host.sh
+- name: set properties
+  script: set-properties.sh
   environment:
     HDFS_NAMENODE_HOST: "{{ hdfs_namenode_host }}"
+    HDFS_BLOCK_SIZE: "{{ hdfs_block_size }}"
   tags:
     - master
     - worker

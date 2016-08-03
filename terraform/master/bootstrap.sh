@@ -5,4 +5,5 @@ ansible-playbook ${ansible_opt} \
   -e "consul_dc_name=${dc_name}" \
   -e "hdfs_namenode_host=$(hostname).node.${dc_name}.consul" \
   -e "spark_rpc=${spark_rpc}" \
+  -e "hdfs_block_size=${hdfs_block_size}" \
   /var/local/playbooks/bootstrap.yml

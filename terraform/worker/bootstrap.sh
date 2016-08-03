@@ -7,4 +7,5 @@ ansible-playbook ${ansible_opt} \
   -e "consul_server_ip=${master_ip}" \
   -e "spark_master_host=${spark_master_host}" \
   -e "spark_rpc=${spark_rpc}" \
+  -e "hdfs_block_size=${hdfs_block_size}" \
   /var/local/playbooks/bootstrap.yml

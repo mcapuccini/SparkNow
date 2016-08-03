@@ -29,4 +29,8 @@ limitations under the License. See accompanying LICENSE file.
     <name>dfs.datanode.data.dir</name>
     <value>file:/mnt/volume/hdfs/datanode</value>
   </property>
+  <property>
+    <name>dfs.block.size</name>
+    <value><hdfs-block-size></value>
+  </property>
 </configuration>

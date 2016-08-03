@@ -11,6 +11,7 @@ variable ansible_opt { default = "" }
 variable ansible_tags { default = "worker" }
 variable spark_rpc { default = "akka" }
 variable spark_master_host {}
+variable hdfs_block_size {}
 
 resource "openstack_blockstorage_volume_v1" "blockstorage" {
   name = "${var.name_prefix}-worker-volume-${format("%03d", count.index)}"
@@ -27,6 +28,7 @@ resource "template_file" "bootstrap" {
     ansible_tags = "${var.ansible_tags}"
     spark_rpc = "${var.spark_rpc}"
     spark_master_host = "${var.spark_master_host}"
+    hdfs_block_size = "${var.hdfs_block_size}"
   }
 }
 
