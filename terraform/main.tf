@@ -9,6 +9,7 @@ variable worker_count { }
 variable master_volume_size { }
 variable worker_volume_size { }
 variable hdfs_block_size { default = "128M" }
+variable spark_rpc { default = "netty" }
 
 module "master_instance" {
   source = "./master"
@@ -20,6 +21,7 @@ module "master_instance" {
   volume_size = "${var.master_volume_size}"
   dc_name = "${var.dc_name}"
   hdfs_block_size = "${var.hdfs_block_size}"
+  spark_rpc = "${var.spark_rpc}"
 }
 
 module "worker_instances" {
@@ -34,4 +36,5 @@ module "worker_instances" {
   dc_name = "${var.dc_name}"
   spark_master_host = "${lower(var.cluster_prefix)}-master.node.${var.dc_name}.consul"
   hdfs_block_size = "${var.hdfs_block_size}"
+  spark_rpc = "${var.spark_rpc}"
 }

@@ -8,7 +8,7 @@ variable volume_size {}
 variable volume_device { default = "/dev/vdb" }
 variable ansible_opt { default = "" }
 variable ansible_tags { default = "master" }
-variable spark_rpc { default = "akka" }
+variable spark_rpc { }
 variable hdfs_block_size {}
 
 resource "openstack_blockstorage_volume_v1" "blockstorage" {

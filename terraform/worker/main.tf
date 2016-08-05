@@ -9,7 +9,7 @@ variable volume_size {}
 variable volume_device { default = "/dev/vdb" }
 variable ansible_opt { default = "" }
 variable ansible_tags { default = "worker" }
-variable spark_rpc { default = "akka" }
+variable spark_rpc { }
 variable spark_master_host {}
 variable hdfs_block_size {}
 
