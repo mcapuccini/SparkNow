@@ -1,6 +1,5 @@
 #!/bin/bash
 
 #Starting Spark master
-export SPARK_PUBLIC_DNS=$(hostname)
 cd /opt/spark/default
-sbin/start-master.sh -h $(hostname)
+sudo -u ubuntu SPARK_PUBLIC_DNS=$(hostname) sbin/start-master.sh -h $(hostname)
