@@ -8,8 +8,9 @@ variable volume_size {}
 variable volume_device { default = "/dev/vdb" }
 variable ansible_opt { default = "" }
 variable ansible_tags { default = "master" }
-variable spark_rpc { }
+variable spark_rpc {}
 variable hdfs_block_size {}
+variable network_name {}
 
 resource "openstack_blockstorage_volume_v1" "blockstorage" {
   name = "${var.name_prefix}-master-volume"
@@ -41,6 +42,9 @@ resource "openstack_compute_instance_v2" "instance" {
   volume = {
     volume_id = "${openstack_blockstorage_volume_v1.blockstorage.0.id}"
     device = "${var.volume_device}"
+  }
+  network {
+    name = "${var.network_name}"
   }
 }
 

@@ -36,7 +36,7 @@ machine.
 
 ```bash
 export SPARK_DOWNLOAD_URL="http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz"
-# you can change the download URL if you need another Spark version, everything should work 
+# you can change the download URL if you need another Spark version, everything should work
 # as long as the binary is compatible with Hadoop 2.6
 
 export PACKER_IMAGE_NAME="SparkNow_spark-1.6.1-hadoop2.6"
@@ -72,6 +72,7 @@ First create a `conf.tfvars` file, specifying some properties for the Spark clus
 keypair_name = "your-keypair"
 cluster_prefix = "SparkNow"
 floating_ip_pool = ""
+network_name = ""
 SparkNow_image_name = "SparkNow_spark-1.6.1-hadoop2.6"
 master_flavor_name = ""
 worker_flavor_name = ""
@@ -85,6 +86,7 @@ master_volume_size = "10"
 (Compute > Access & Security > Key Pairs).
 - *cluster_prefix*: prefix for the resources that will be created in your OpenStack tenancy
 - *floating_ip_pool*: a floating IP pool in your OpenStack tenancy
+- *network_name*: an existing private network name (where the instances will be attached)
 - *SparkNow_image_name*: the name of the SparkNow image that you built in the previous step
 - *master_flavor_name*: the Spark master instance flavor
 - *worker_flavor_name*: the Spark worker instance flavor
@@ -131,7 +133,7 @@ If everything went well, you should be able to access the UIs from your browser 
 - Jupyter: [http://localhost:8888](http://localhost:8888)
 - HDFS: [http://localhost:50070](http://localhost:50070)
 
-## Access HDFS 
+## Access HDFS
 In a SparkNow cluster the HDFS namenode is reachable at `hdfs://<cluster_prefix>-master.node.consul:9000`.
 
 To copy data in HDFS, you can ssh into the SparkNow master node, or ssh forward port 9000, and use the [Hadoop
