@@ -6,7 +6,6 @@
 		"network": "{{env `PACKER_NETWORK`}}",
 		"flavour": "{{env `PACKER_FLAVOUR`}}",
 		"floating_ip_pool": "{{env `PACKER_FLOATING_IP_POOL`}}",
-		"availability_zone": "{{env `PACKER_AVAILABILITY_ZONE`}}",
 		"spark_download_url": "{{env `SPARK_DOWNLOAD_URL`}}"
 	},
 	"builders": [
@@ -17,7 +16,6 @@
 			"source_image_name": "{{user `source_image_name`}}",
 			"flavor": "{{user `flavour`}}",
 			"networks": ["{{user `network`}}"],
-			"availability_zone": "{{user `availability_zone`}}",
 			"floating_ip_pool": "{{user `floating_ip_pool`}}",
 			"ssh_username":  "ubuntu"
 		}
