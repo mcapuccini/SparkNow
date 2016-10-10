@@ -11,6 +11,7 @@ variable worker_volume_size { }
 variable hdfs_block_size { default = "128M" }
 variable spark_rpc { default = "netty" }
 variable network_name { }
+variable ansible_opt { default = "" }
 
 module "master_instance" {
   source = "./master"
@@ -24,6 +25,7 @@ module "master_instance" {
   hdfs_block_size = "${var.hdfs_block_size}"
   spark_rpc = "${var.spark_rpc}"
   network_name = "${var.network_name}"
+  ansible_opt = "${var.ansible_opt}"
 }
 
 module "worker_instances" {
@@ -40,4 +42,5 @@ module "worker_instances" {
   hdfs_block_size = "${var.hdfs_block_size}"
   spark_rpc = "${var.spark_rpc}"
   network_name = "${var.network_name}"
+  ansible_opt = "${var.ansible_opt}"
 }
