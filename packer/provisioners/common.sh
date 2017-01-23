@@ -26,3 +26,7 @@ sudo apt-get install -y python-scipy
 
 echo "Installing unzip..."
 sudo apt-get install -y unzip
+
+echo "Configuring tmpfs on /tmp"
+sudo echo 'tmpfs /tmp tmpfs defaults,noatime,nosuid,nodev,noexec,mode=1777,size=1G 0 0' \
+  >> /etc/fstab
