@@ -20,7 +20,7 @@ echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> ~/.bashrc
 
 echo "Installing python packages..."
 sudo apt-get install -y \
-  python-scipy # for PySpark
+  python-scipy \
   python-pip
 
 echo "Installing unzip..."
