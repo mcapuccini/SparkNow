@@ -30,4 +30,4 @@ sudo apt-get install -y unzip
 echo "Configuring tmpfs on /tmp/ram"
 mkdir /tmp/ram
 sudo sh -c \
-  'echo "tmpfs /tmp tmpfs defaults,noatime,nosuid,nodev,noexec,mode=1777,size=1G 0 0" >> /etc/fstab'
+  'echo "tmpfs /tmp/ram tmpfs defaults,noatime,nosuid,nodev,noexec,mode=1777,size=1G 0 0" >> /etc/fstab'
