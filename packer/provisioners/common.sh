@@ -24,7 +24,9 @@ sudo apt-get install -y \
   python-pip \
   python-dev \
   build-essential \
-  python-crypto
+  python-crypto \
+  libffi-dev \
+  libssl-dev
 
 echo "Installing unzip..."
 sudo apt-get install -y unzip
