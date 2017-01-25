@@ -21,7 +21,10 @@ echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> ~/.bashrc
 echo "Installing python packages..."
 sudo apt-get install -y \
   python-scipy \
-  python-pip
+  python-pip \
+  python-setuptools \
+  python-dev \
+  build-essential 
 
 echo "Installing unzip..."
 sudo apt-get install -y unzip
