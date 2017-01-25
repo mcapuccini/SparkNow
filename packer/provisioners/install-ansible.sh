@@ -4,7 +4,7 @@
 set -e
 
 echo "Installing ansible..."
-sudo apt-get install -y ansible
+sudo pip install ansible==2.2.0.0
 
 echo "Moving SparkNow playbooks to /var/local/playbooks..."
 sudo mv /tmp/playbooks /var/local/playbooks
