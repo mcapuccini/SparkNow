@@ -26,3 +26,9 @@ sudo apt-get install -y python-scipy
 
 echo "Installing unzip..."
 sudo apt-get install -y unzip
+
+echo "Increase open files limit"
+sudo sh -c \
+  'echo "*    soft    nofile 10240" >> /etc/security/limits.conf'
+sudo sh -c \
+  'echo "*    hard    nofile 10240" >> /etc/security/limits.conf'
