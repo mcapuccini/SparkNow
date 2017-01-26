@@ -38,6 +38,6 @@ sudo sh -c \
 
 echo "Increase open files limit"
 sudo sh -c \
-  'echo "*    soft    nofile 10240" >> /etc/security/limits.conf'
+  'echo "*    soft    nofile 102400" >> /etc/security/limits.conf'
 sudo sh -c \
-  'echo "*    hard    nofile 10240" >> /etc/security/limits.conf'
+  'echo "*    hard    nofile 102400" >> /etc/security/limits.conf'
