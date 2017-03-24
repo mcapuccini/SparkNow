@@ -42,7 +42,7 @@ export SPARK_DOWNLOAD_URL="http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-
 export PACKER_IMAGE_NAME="SparkNow_spark-1.6.1-hadoop2.6"
 export PACKER_SOURCE_IMAGE_NAME="Ubuntu 14.04" #this may be different in your OpenStack tenancy
 export PACKER_NETWORK="" # your OpenStack tenancy private network id
-export PACKER_FLAVOUR="" # the instance flavor that you want to use to build SparkNow
+export PACKER_FLAVOR="" # the instance flavor that you want to use to build SparkNow
 export PACKER_AVAILABILITY_ZONE="" # an availability zone name in your OpenStack tenancy
 export PACKER_FLOATING_IP_POOL="" # a floating IP pool in your OpenStack tenancy
 ```
