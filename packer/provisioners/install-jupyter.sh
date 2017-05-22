@@ -4,4 +4,4 @@
 set -e
 
 echo "Pulling jupyter/all-spark-notebook docker image..."
-sudo docker pull jupyter/all-spark-notebook
+sudo docker pull jupyter/all-spark-notebook:c33a7dc0eece

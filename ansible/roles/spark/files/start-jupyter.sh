@@ -12,4 +12,4 @@ sudo docker run -d \
   -v $(readlink /opt/hadoop/default):/opt/hadoop/default \
   -e TINI_SUBREAPER=true \
   -e SPARK_OPTS="--master=spark://$(hostname):7077 --conf spark.rpc=$SPARK_RPC" \
-  jupyter/all-spark-notebook
+  jupyter/all-spark-notebook:c33a7dc0eece
