@@ -39,6 +39,10 @@
 			"script": "{{pwd}}/packer/provisioners/install-jupyter.sh"
 		},
 		{
+			"type": "shell",
+			"script": "{{pwd}}/packer/provisioners/install-zeppelin.sh"
+		},
+		{
   		"type": "file",
   		"source": "{{pwd}}/packer/provisioners/core-site.xml",
   		"destination": "/tmp/core-site.xml"

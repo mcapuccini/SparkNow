@@ -4,6 +4,7 @@ Using SparkNow you can rapidly deploy, scale and tear down your Spark clusters o
 - A [Spark](http://spark.apache.org/) cluster up and running
 - A [HDFS](https://hadoop.apache.org/) cluster to store your data
 - A [Jupyter](https://github.com/jupyter/docker-stacks/tree/master/all-spark-notebook) notebook for interactive Spark tasks
+- A [Apache Zeppelin](https://zeppelin.apache.org/) notebook for interactive Spark tasks
 
 ## Table of contents
 - [Getting started](#getting-started)
@@ -123,6 +124,7 @@ Then forward the UIs ports using ssh
 ssh -N -f -L localhost:8080:localhost:8080 ubuntu@<master-floating-ip>
 ssh -N -f -L localhost:4040:localhost:4040 ubuntu@<master-floating-ip>
 ssh -N -f -L localhost:8888:localhost:8888 ubuntu@<master-floating-ip>
+ssh -N -f -L localhost:9999:localhost:9999 ubuntu@<master-floating-ip>
 ssh -N -f -L localhost:50070:localhost:50070 ubuntu@<master-floating-ip>
 ```
 
@@ -131,6 +133,7 @@ If everything went well, you should be able to access the UIs from your browser 
 - Spark Master UI: [http://localhost:8080](http://localhost:8080)
 - Spark Driver UI, of the currently running application: [http://localhost:4040](http://localhost:4040)
 - Jupyter: [http://localhost:8888](http://localhost:8888)
+- Zeppelin: [http://localhost:8888](http://localhost:9999)
 - HDFS: [http://localhost:50070](http://localhost:50070)
 
 ## Access HDFS
