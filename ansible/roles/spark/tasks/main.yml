@@ -27,3 +27,11 @@
   tags:
     - master
     - start-spark-master
+
+- name: start Zeppelin
+  script: start-zeppelin.sh
+  environment:
+    SPARK_RPC: "{{ spark_rpc }}"
+  tags:
+    - master
+    - start-spark-master
