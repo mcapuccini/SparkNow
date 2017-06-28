@@ -11,6 +11,7 @@ variable ansible_tags { default = "master" }
 variable spark_rpc {}
 variable hdfs_block_size {}
 variable network_name {}
+variable zeppelinhub_api_token {}
 
 resource "openstack_blockstorage_volume_v1" "blockstorage" {
   name = "${var.name_prefix}-master-volume"
@@ -29,6 +30,7 @@ resource "template_file" "bootstrap" {
     ansible_tags = "${var.ansible_tags}"
     spark_rpc = "${var.spark_rpc}"
     hdfs_block_size = "${var.hdfs_block_size}"
+    zeppelinhub_api_token = "${var.zeppelinhub_api_token}"
   }
 }
 

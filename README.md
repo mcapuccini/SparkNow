@@ -36,11 +36,11 @@ To build SparkNow on your OpenStack tenancy, first export the following environm
 machine.
 
 ```bash
-export SPARK_DOWNLOAD_URL="http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz"
+export SPARK_DOWNLOAD_URL="http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz"
 # you can change the download URL if you need another Spark version, everything should work
-# as long as the binary is compatible with Hadoop 2.6
+# as long as the binary is compatible with Hadoop 2.7
 
-export PACKER_IMAGE_NAME="SparkNow_spark-1.6.1-hadoop2.6"
+export PACKER_IMAGE_NAME="SparkNow_spark-2.1.0-hadoop2.7"
 export PACKER_SOURCE_IMAGE_NAME="Ubuntu 14.04" #this may be different in your OpenStack tenancy
 export PACKER_NETWORK="" # your OpenStack tenancy private network id
 export PACKER_FLAVOR="" # the instance flavor that you want to use to build SparkNow
@@ -74,7 +74,7 @@ keypair_name = "your-keypair"
 cluster_prefix = "SparkNow"
 floating_ip_pool = ""
 network_name = ""
-SparkNow_image_name = "SparkNow_spark-1.6.1-hadoop2.6"
+SparkNow_image_name = "SparkNow_spark-2.1.0-hadoop2.7"
 master_flavor_name = ""
 worker_flavor_name = ""
 worker_count = "3"
@@ -140,12 +140,13 @@ If everything went well, you should be able to access the UIs from your browser 
 In a SparkNow cluster the HDFS namenode is reachable at `hdfs://<cluster_prefix>-master.node.consul:9000`.
 
 To copy data in HDFS, you can ssh into the SparkNow master node, or ssh forward port 9000, and use the [Hadoop
-CLI](https://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/CommandsManual.html).
+CLI](https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-Finally, there are two preconfigured directories in a SparkNow HDFS cluster:
+Finally, there are some preconfigured directories in a SparkNow HDFS cluster:
 
 - */ubuntu* writable by the ubuntu user
 - */jupyter* writable by the jovyan user (you can write here when running interactive Spark applications via Jupyter)
+- */root* writeble by the root user (can be used when running Zeppelin notes)
 
 ## Scale the cluster
 To scale the number of workers in your cluster, open the `conf.tfvars` file, and change the *worker_count* property.

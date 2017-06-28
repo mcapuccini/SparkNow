@@ -32,6 +32,7 @@
   script: start-zeppelin.sh
   environment:
     SPARK_RPC: "{{ spark_rpc }}"
+    ZEPPELINHUB_API_TOKEN: "{{ zeppelinhub_api_token }}"
   tags:
     - master
     - start-spark-master

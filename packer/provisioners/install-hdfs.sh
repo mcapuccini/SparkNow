@@ -13,7 +13,7 @@ sudo sh -c 'echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf'
 sudo sh -c 'echo "net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf'
 
 echo "Fetching Hadoop..."
-HADOOP_DOWNLOAD_URL=http://www-us.apache.org/dist/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.tar.gz
+HADOOP_DOWNLOAD_URL=http://www-us.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
 HADOOP_TGZ=${HADOOP_DOWNLOAD_URL##*/}
 HADOOP_PACKAGE_NAME=${HADOOP_TGZ%.tar.gz}
 wget -q $HADOOP_DOWNLOAD_URL -O /tmp/$HADOOP_TGZ

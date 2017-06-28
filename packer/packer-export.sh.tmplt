@@ -1,8 +1,8 @@
-export SPARK_DOWNLOAD_URL="http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz"
+export SPARK_DOWNLOAD_URL="http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz"
 # you can change the download URL if you need another Spark version, everything should work
-# as long as the binary is compatible with Hadoop 2.6
+# as long as the binary is compatible with Hadoop 2.7
 
-export PACKER_IMAGE_NAME="SparkNow_spark-1.6.1-hadoop2.6"
+export PACKER_IMAGE_NAME="SparkNow_spark-2.1.0-hadoop2.7"
 export PACKER_SOURCE_IMAGE_NAME="Ubuntu 14.04" #this may be different in your OpenStack tenancy
 export PACKER_NETWORK="" # your OpenStack tenancy private network id
 export PACKER_FLAVOR="" # the instance flavor that you want to use to build SparkNow
