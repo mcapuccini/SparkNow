@@ -133,7 +133,7 @@ If everything went well, you should be able to access the UIs from your browser 
 - Spark Master UI: [http://localhost:8080](http://localhost:8080)
 - Spark Driver UI, of the currently running application: [http://localhost:4040](http://localhost:4040)
 - Jupyter: [http://localhost:8888](http://localhost:8888)
-- Zeppelin: [http://localhost:8888](http://localhost:9999)
+- Zeppelin: [http://localhost:9999](http://localhost:9999)
 - HDFS: [http://localhost:50070](http://localhost:50070)
 
 ## Access HDFS
