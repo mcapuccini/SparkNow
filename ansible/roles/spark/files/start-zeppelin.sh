@@ -11,6 +11,6 @@ sudo docker run -d \
   -e ZEPPELIN_NOTEBOOK_DIR=/zeppelin-workspace \
   -e SPARK_SUBMIT_OPTIONS="--conf spark.rpc=$SPARK_RPC" \
   -e ZEPPELIN_NOTEBOOK_STORAGE="org.apache.zeppelin.notebook.repo.GitNotebookRepo, org.apache.zeppelin.notebook.repo.zeppelinhub.ZeppelinHubRepo" \
-  -e ZEPPELINHUB_API_ADDRESS="https://www.zeppelinhub.com" \
+  -e ZEPPELINHUB_API_ADDRESS="https://www.zepl.com" \
   -e ZEPPELINHUB_API_TOKEN="$ZEPPELINHUB_API_TOKEN" \
   dylanmei/zeppelin:0.7.1
