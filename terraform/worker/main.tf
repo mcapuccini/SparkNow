@@ -14,11 +14,22 @@ variable spark_master_host {}
 variable hdfs_block_size {}
 variable network_name {}
 
-resource "openstack_blockstorage_volume_v1" "blockstorage" {
-  name = "${var.name_prefix}-worker-volume-${format("%03d", count.index)}"
-  size = "${var.volume_size}"
-  count = "${var.count}"
+
+
+# Create extra disk (optional)
+resource "openstack_blockstorage_volume_v2" "extra_disk" {
+  count = "${var.volume_size > 0 ? var.count : 0}"
+  name  = "${var.name_prefix}-extra-${format("%03d", count.index)}"
+  size  = "${var.volume_size}"
 }
+
+# Attach extra disk (if created) Disk attaches as /dev/
+resource "openstack_compute_volume_attach_v2" "attach_extra_disk" {
+  count       = "${var.volume_size > 0 ? var.count : 0}"
+  instance_id = "${element(openstack_compute_instance_v2.instance.*.id, count.index)}"
+  volume_id   = "${element(openstack_blockstorage_volume_v2.extra_disk.*.id, count.index)}"
+}
+
 
 resource "template_file" "bootstrap" {
   template = "${file("${path.module}/bootstrap.sh")}"
@@ -41,11 +52,10 @@ resource "openstack_compute_instance_v2" "instance" {
   key_pair = "${var.keypair_name}"
   user_data = "${template_file.bootstrap.rendered}"
   count = "${var.count}"
-  volume = {
-    volume_id = "${element(openstack_blockstorage_volume_v1.blockstorage.*.id, count.index)}"
-    device = "${var.volume_device}"
-  }
+  
   network {
     name = "${var.network_name}"
   }
 }
+
+
