@@ -6,8 +6,12 @@ set -e
 echo "Installing apparmor..."
 sudo apt-get install -y apparmor
 
+
 echo "Installing docker..."
-sudo apt-get install -y docker-engine
+
+
+sudo apt-get -y install docker-engine
+
 
 echo "Add ubuntu to docker group..."
 sudo gpasswd -a ubuntu docker

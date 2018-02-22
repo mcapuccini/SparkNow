@@ -13,7 +13,7 @@ sudo sh -c 'echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf'
 sudo sh -c 'echo "net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf'
 
 echo "Fetching Hadoop..."
-HADOOP_DOWNLOAD_URL=http://www-us.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+HADOOP_DOWNLOAD_URL=http://apache.mirrors.spacedump.net/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz
 HADOOP_TGZ=${HADOOP_DOWNLOAD_URL##*/}
 HADOOP_PACKAGE_NAME=${HADOOP_TGZ%.tar.gz}
 wget -q $HADOOP_DOWNLOAD_URL -O /tmp/$HADOOP_TGZ
@@ -35,7 +35,7 @@ echo 'export HADOOP_HDFS_HOME=$HADOOP_HOME' >> ~/.bashrc
 echo 'export YARN_HOME=$HADOOP_HOME' >> ~/.bashrc
 echo 'export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native' >> ~/.bashrc
 echo 'export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"' >> ~/.bashrc
-sudo sh -c 'echo "JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /opt/hadoop/default/etc/hadoop/hadoop-env.sh'
+sudo sh -c 'echo "JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> /opt/hadoop/default/etc/hadoop/hadoop-env.sh'
 
 # Move configuration to the correct location
 sudo mv /tmp/core-site.xml /opt/hadoop/default/etc/hadoop
